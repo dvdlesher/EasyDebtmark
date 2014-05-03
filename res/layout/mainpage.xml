@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/mainpage_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Input data in this order: &lt;name> &lt;amount> &lt;additional details>" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/mainpage_OKButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/mainpage_input"
+        android:text="OK" />
+
+    <Button
+        android:id="@+id/mainpage_voiceButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/mainpage_OKButton"
+        android:layout_alignBottom="@+id/mainpage_OKButton"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/mainpage_OKButton"
+        android:text="Use Voice" />
+
+    <ListView
+        android:id="@+id/maindebtList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mainpage_voiceButton"
+        android:layout_centerHorizontal="true" >
+    </ListView>
+
+</RelativeLayout>
