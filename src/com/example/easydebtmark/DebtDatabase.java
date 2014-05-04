@@ -29,15 +29,17 @@ public class DebtDatabase {
 	public static final String KEY_DATE = "date";
 	public static final String KEY_OWED = "owed";
 	public static final String KEY_PAID = "paid";
+	public static final String KEY_DETAILS = "details";
 
 	// TODO: Setup your field numbers here (0 = KEY_ROWID, 1=...)
 	public static final int COL_NAME = 1;
 	public static final int COL_DATE = 2;
 	public static final int COL_OWED = 3;
 	public static final int COL_PAID = 4;
+	public static final int COL_DETAILS = 5;
 
 	public static final String[] ALL_KEYS = new String[] { KEY_ROWID, KEY_NAME,
-			KEY_DATE, KEY_OWED, KEY_PAID };
+			KEY_DATE, KEY_OWED, KEY_PAID, KEY_DETAILS };
 
 	// DB info: it's name, and the table we are using (just one).
 	public static final String DATABASE_NAME = "Main Database";
@@ -63,8 +65,9 @@ public class DebtDatabase {
 			// value).
 			// NOTE: All must be comma separated (end of line!) Last one must
 			// have NO comma!!
-			+ KEY_NAME + " text not null, " + KEY_DATE + " integer not null, "
-			+ KEY_OWED + " string not null" + KEY_PAID + " string not null"
+			+ KEY_NAME + " text not null, " + KEY_DATE + " string not null "
+			+ KEY_OWED + " string not null" + KEY_PAID + " string not null "
+			+ KEY_DETAILS + "string not null"
 
 			// Rest of creation:
 			+ ");";
@@ -96,7 +99,7 @@ public class DebtDatabase {
 	}
 
 	// Add a new set of values to the database.
-	public long insertRow(String name, String date, int owed, int paid) {
+	public long insertRow(String name, String date, float owed, float paid, String details) {
 		/*
 		 * CHANGE 3:
 		 */
@@ -108,6 +111,7 @@ public class DebtDatabase {
 		initialValues.put(KEY_DATE, date);
 		initialValues.put(KEY_OWED, owed);
 		initialValues.put(KEY_PAID, paid);
+		initialValues.put(KEY_DETAILS, details);
 
 		// Insert it into the database.
 		return db.insert(DATABASE_TABLE, null, initialValues);
@@ -153,8 +157,8 @@ public class DebtDatabase {
 	}
 
 	// Change an existing row to be equal to new data.
-	public boolean updateRow(long rowId, String name, String date, int owed,
-			int paid) {
+	public boolean updateRow(long rowId, String name, String date, float owed,
+			float paid, String details) {
 		String where = KEY_ROWID + "=" + rowId;
 
 		/*
@@ -168,6 +172,8 @@ public class DebtDatabase {
 		newValues.put(KEY_DATE, date);
 		newValues.put(KEY_OWED, owed);
 		newValues.put(KEY_PAID, paid);
+		newValues.put(KEY_DETAILS, details);
+
 		// Insert it into the database.
 		return db.update(DATABASE_TABLE, newValues, where, null) != 0;
 	}

@@ -30,6 +30,7 @@
         android:layout_alignBottom="@+id/mainpage_OKButton"
         android:layout_marginRight="10dp"
         android:layout_toLeftOf="@+id/mainpage_OKButton"
+        android:onClick="speakButtonClicked"
         android:text="Use Voice" />
 
     <ListView

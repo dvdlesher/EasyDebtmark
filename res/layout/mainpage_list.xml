@@ -21,12 +21,12 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/mainlist_amountDebtText"
+        android:id="@+id/mainlist_remainDebtText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/mainlist_name"
         android:layout_below="@+id/mainlist_name"
-        android:text="Amount Debt"
+        android:text="Remaining Debt"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <Button
@@ -36,14 +36,5 @@
         android:layout_alignBottom="@+id/textView2"
         android:layout_alignParentRight="true"
         android:text="Edit/Pay" />
-
-    <TextView
-        android:id="@+id/mainlist_amountPaidText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/mainlist_amountDebtText"
-        android:layout_below="@+id/mainlist_amountDebtText"
-        android:text="Paid Debt"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>
